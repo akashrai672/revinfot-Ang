@@ -1,0 +1,160 @@
+<form [formGroup]="signUpForm" (ngSubmit)="formAction(this.signUpForm.value)">
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Name"
+        formControlName="name"
+        [ngClass]="{
+          'is-invalid':
+            signUpForm.get('name').touched && signUpForm.get('name').invalid,
+          'is-valid':
+            signUpForm.get('name').touched && signUpForm.get('name').valid
+        }"
+        required
+      />
+      <div class="invalid-feedback">
+        <div class="error-msg">Name is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+        [ngClass]="{
+          'is-invalid':
+            signUpForm.get('email').touched && signUpForm.get('email').invalid,
+          'is-valid':
+            signUpForm.get('email').touched && signUpForm.get('email').valid
+        }"
+        required
+      />
+      <div class="invalid-feedback">
+        <div class="error-msg">Email is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+      <input
+        type="number"
+        class="form-control number"
+        id="phone"
+        placeholder="phone"
+        formControlName="phone"
+        [ngClass]="{
+          'is-invalid':
+            signUpForm.get('phone').touched && signUpForm.get('phone').invalid,
+          'is-valid':
+            signUpForm.get('phone').touched && signUpForm.get('phone').valid
+        }"
+        required
+      />
+      <div class="invalid-feedback">
+        <div class="error-msg">Phone is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="age" class="col-sm-2 col-form-label">age</label>
+    <div class="col-sm-10">
+      <input
+        type="number"
+        class="form-control number"
+        id="age"
+        placeholder="age"
+        formControlName="age"
+        [ngClass]="{
+          'is-invalid':
+            signUpForm.get('age').touched && signUpForm.get('age').invalid,
+          'is-valid':
+            signUpForm.get('age').touched && signUpForm.get('age').valid
+        }"
+        required
+      />
+      <div class="invalid-feedback">
+        <div class="error-msg">age is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="gender" class="col-sm-2 col-form-label">gender</label>
+    <div class="col-sm-10">
+      <select
+        class="form-control"
+        placeholder="gender"
+        formControlName="gender"
+      >
+        <option value="">Please Select</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="classId" class="col-sm-2 col-form-label">classId</label>
+    <div class="col-sm-10">
+      <select
+        class="form-control"
+        placeholder="class"
+        formControlName="classId"
+        [ngClass]="{
+          'is-invalid':
+            signUpForm.get('password').touched &&
+            signUpForm.get('password').invalid,
+          'is-valid':
+            signUpForm.get('password').touched &&
+            signUpForm.get('password').valid
+        }"
+        required
+      >
+        <option value="null">Please Select</option>
+        <option value="{{ item._id }}" *ngFor="let item of classList">
+          {{ item.name }}
+        </option>
+      </select>
+      <div class="invalid-feedback">
+        <div class="error-msg">Passwords is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        formControlName="password"
+        [ngClass]="{
+          'is-invalid':
+            signUpForm.get('password').touched &&
+            signUpForm.get('password').invalid,
+          'is-valid':
+            signUpForm.get('password').touched &&
+            signUpForm.get('password').valid
+        }"
+        required
+      />
+      <div class="invalid-feedback">
+        <div class="error-msg">Password is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+  </div>
+</form>
